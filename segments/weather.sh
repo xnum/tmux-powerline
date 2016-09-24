@@ -129,57 +129,7 @@ __get_condition_symbol() {
 	local condition=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 	local sunrise="$2"
 	local sunset="$3"
-	case "$condition" in
-		"sunny" | "hot")
-			hourmin=$(date +%H%M)
-			if [ "$hourmin" -ge "$sunset" -o "$hourmin" -le "$sunrise" ]; then
-				#echo "☽"
-				echo "☾"
-			else
-				#echo "☀"
-				echo "☼"
-			fi
-			;;
-		"rain" | "mixed rain and snow" | "mixed rain and sleet" | "freezing drizzle" | "drizzle" | "light drizzle" | "freezing rain" | "showers" | "mixed rain and hail" | "scattered showers" | "isolated thundershowers" | "thundershowers" | "light rain with thunder" | "light rain" | "rain and snow")
-			#echo "☂"
-			echo "☔"
-			;;
-		"snow" | "mixed snow and sleet" | "snow flurries" | "light snow showers" | "blowing snow" | "sleet" | "hail" | "heavy snow" | "scattered snow showers" | "snow showers" | "light snow" | "snow/windy" | "snow grains" | "snow/fog")
-			#echo "☃"
-			echo "❅"
-			;;
-		"cloudy" | "mostly cloudy" | "partly cloudy" | "partly cloudy/windy")
-			echo "☁"
-			;;
-		"tornado" | "tropical storm" | "hurricane" | "severe thunderstorms" | "thunderstorms" | "isolated thunderstorms" | "scattered thunderstorms")
-			#echo "⚡"
-			echo "☈"
-			;;
-		"dust" | "foggy" | "fog" | "haze" | "smoky" | "blustery" | "mist")
-			#echo "♨"
-			#echo "﹌"
-			echo "〰"
-			;;
-		"breezy")
-			#echo "🌬"
-			echo "🍃"
-			;;
-		"windy" | "fair/windy")
-			#echo "⚐"
-			echo "⚑"
-			;;
-		"clear" | "fair" | "cold")
-			hourmin=$(date +%H%M)
-			if [ "$hourmin" -ge "$sunset" -o "$hourmin" -le "$sunrise" ]; then
-				echo "☾"
-			else
-				echo "〇"
-			fi
-			;;
-		*)
-			echo "?"
-			;;
-	esac
+    echo "$condition"
 }
 
 __read_tmp_file() {
